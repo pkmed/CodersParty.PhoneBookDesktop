@@ -5,8 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BtnController implements ActionListener {
-    AddWindow addWin = new AddWindow(this);
-    SearchForm searchForm;
+    private AddWindow addWin = new AddWindow(this);
+    private SearchForm searchForm;
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "add":
@@ -28,7 +28,7 @@ public class BtnController implements ActionListener {
                 break;
             case "confirm edit":
                 element = Logic.getCurrentWin().getPhoneList().getSelectedValue().split(";");
-                Logic.editNumber(addWin.getNumber(),addWin.getFullName(),addWin.getAddress(), Integer.parseInt(element[0]), element[1], element[2]);
+                Logic.editNumber(addWin.getNumber(),addWin.getFullName(),addWin.getAddress(), Integer.parseInt(element[0]));
                 try {
                     Logic.getCurrentWin().updateList(Logic.getAllElements());
                 } catch (SQLException e1) { e1.printStackTrace(); }

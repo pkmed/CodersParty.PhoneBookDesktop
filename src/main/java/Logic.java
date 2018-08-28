@@ -33,7 +33,7 @@ public class Logic {
             e.printStackTrace();
         }
     }
-    static void editNumber(Long number, String fullName, String address, Integer oldNumber, String oldFullName, String oldAddress){
+    static void editNumber(Long number, String fullName, String address, Integer oldNumber){
         try {
             ResultSet row = JDBC_mysql_connector.execQuery("SELECT * FROM people WHERE phoneNumber="+oldNumber+";");
             int oldRowId=-1;
