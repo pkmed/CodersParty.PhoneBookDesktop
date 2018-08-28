@@ -1,4 +1,3 @@
-import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -7,6 +6,7 @@ public class Logic {
     public static void main(String[] args){
         setUpDBConnection();
         win = new Window();
+        win.setVisible(true);
         try {
             win.updateList(getAllElements());
         } catch (SQLException e) {
@@ -21,6 +21,7 @@ public class Logic {
         ConnectionForm regForm = new ConnectionForm();
         regForm.setVisible(true);
         while(regForm.getWindowState()!=WindowState.DISPOSED){
+            System.out.println("");
         }
     }
     static void addNumber(Long number, String fullName, String address){
