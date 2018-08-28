@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class SearchForm extends JFrame {
+class SearchForm extends JFrame {
     private JLabel parameterName = new JLabel();
     private JTextField inputField = new JTextField();
     private JButton searchBtn = new JButton("search");

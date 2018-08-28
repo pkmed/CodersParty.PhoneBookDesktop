@@ -8,7 +8,7 @@ public class AddWindow extends JFrame {
     private JTextField nameField = new JTextField(),
     addressField  = new JTextField(),
     numberField = new JTextField();
-    BtnController btnController;
+    private BtnController btnController;
     private JButton confirmBtn = new JButton("confirm");
     AddWindow(BtnController btnController){
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -45,7 +45,7 @@ public class AddWindow extends JFrame {
     Long getNumber(){
         return Long.parseLong(numberField.getText());
     }
-    void setNumber(int number){
+    void setNumber(long number){
         numberField.setText(number+"");
     }
 

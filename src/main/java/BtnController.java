@@ -21,14 +21,14 @@ public class BtnController implements ActionListener {
                 break;
             case "edit":
                 String[] element = Logic.getCurrentWin().getPhoneList().getSelectedValue().split(";");
-                addWin.setNumber(Integer.parseInt(element[0]));
+                addWin.setNumber(Long.parseLong(element[0]));
                 addWin.setFullName(element[1]);
                 addWin.setAddress(element[2]);
                 addWin.showWindow("confirm edit");
                 break;
             case "confirm edit":
                 element = Logic.getCurrentWin().getPhoneList().getSelectedValue().split(";");
-                Logic.editNumber(addWin.getNumber(),addWin.getFullName(),addWin.getAddress(), Integer.parseInt(element[0]));
+                Logic.editNumber(addWin.getNumber(),addWin.getFullName(),addWin.getAddress(), Long.parseLong(element[0]));
                 try {
                     Logic.getCurrentWin().updateList(Logic.getAllElements());
                 } catch (SQLException e1) { e1.printStackTrace(); }
@@ -36,7 +36,7 @@ public class BtnController implements ActionListener {
                 break;
             case "delete":
                 element = Logic.getCurrentWin().getPhoneList().getSelectedValue().split(";");
-                Logic.deleteElement(Integer.parseInt(element[0]));
+                Logic.deleteElement(Long.parseLong(element[0]));
                 try {
                     Logic.getCurrentWin().updateList(Logic.getAllElements());
                 } catch (SQLException e1) { e1.printStackTrace(); }

@@ -20,8 +20,12 @@ public class Logic {
         JDBC_mysql_connector.importJDBC();
         ConnectionForm regForm = new ConnectionForm();
         regForm.setVisible(true);
-        while(regForm.getWindowState()!=WindowState.DISPOSED){
-            System.out.println("");
+        while(!regForm.getWindowState().equals(WindowState.DISPOSED)){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
     static void addNumber(Long number, String fullName, String address){
@@ -33,7 +37,7 @@ public class Logic {
             e.printStackTrace();
         }
     }
-    static void editNumber(Long number, String fullName, String address, Integer oldNumber){
+    static void editNumber(Long number, String fullName, String address, long oldNumber){
         try {
             ResultSet row = JDBC_mysql_connector.execQuery("SELECT * FROM people WHERE phoneNumber="+oldNumber+";");
             int oldRowId=-1;
@@ -103,10 +107,9 @@ public class Logic {
             return null;
         }
     }
-    static void deleteElement(int number){
+    static void deleteElement(long number){
         try {
-            JDBC_mysql_connector.execUpdate("DELETE FROM people " +
-                    "WHERE phoneNumber='"+number+"';");
+            JDBC_mysql_connector.execUpdate("DELETE FROM people WHERE phoneNumber="+number+";");
         } catch (SQLException e) {
             e.printStackTrace();
         }
